@@ -25,6 +25,30 @@
 //     }
 // }
 
+function User(id, name, email, street, suite, city, zipcode, lat, lng, phone, website, companyName, catchPhrase, bs) {
+    this.id = id;
+    this.name = name;
+    this.email = email;
+    this.address = {
+        street,
+        suite,
+        city,
+        zipcode,
+        geo: {
+            lat,
+            lng,
+        },
+    };
+    this.phone = phone;
+    this.website = website;
+    this.company = {
+        name: companyName,
+        catchPhrase,
+        bs,
+    };
+};
+
+// ----------------------------------------------------------------------------------------------------------------
 
 // -  Створити функцію конструктор / клас  який описує об'єкт тегу
 // Поля :
@@ -57,3 +81,19 @@
 //         ]
 
 //    }
+
+
+
+function DescribeTag(titleOfTag, action, ...nameAndActionOfAttibuts) {
+    this.titleOfTag = titleOfTag;
+    this.action = action;
+    this.atributs = [
+        ...nameAndActionOfAttibuts // наскільки правильно робити ось так як я тут зробив?
+    ];
+}
+
+let aTag = new DescribeTag('<a>', ' тег <a> устанавливает ссылку или якорь', { name: 'accesskey', action: 'Активация ссылки с помощью комбинации клавиш' }, { name: 'coords', action: 'Устанавливает координаты активной области' });
+let divTag = new DescribeTag('<div>', 'Элемент <div> является блочным элементом и предназначен для выделения фрагмента документа с целью изменения вида содержимого', { name: 'align', action: 'Задает выравнивание содержимого тега <div>' }, { name: 'title', action: 'Добавляет всплывающую подсказку к содержимому' });
+
+console.log(aTag, divTag);
+// ------------------------------------------------------------------------------------------
